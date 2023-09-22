@@ -116,9 +116,6 @@
             if (!isNaN(eingabe)) {
                 if (eingabe === geheimzahl) {
                     resultElement.innerHTML = "Die Zahl ist richtig!";
-                    setTimeout(() => {
-                        window.location.reload(); // Um die Seite neu zu laden
-                    }, 2500);
                 } else if (eingabe < geheimzahl) {
                     resultElement.innerHTML = "Die Zahl ist zu klein.";
                 } else {
