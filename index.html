@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeknacker</title>
+    <style>
+        body {
+          color: #ad0000;
+          background-color: #ad0000;
+          background-image: url("https://media.discordapp.net/attachments/1101426227602010184/1143469908445900800/Sternenhimmel.png?width=916&height=687");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          margin: 0;
+          font-family: "Engravers MT", Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: #EB0000;
+          color: #000000;
+          border: none;
+          border-radius: 5px;
+          margin: 10px;
+          cursor: pointer;
+          font-family: "Engravers MT", Arial, sans-serif;
+          box-shadow: 0 8px 16px rgb(158, 0, 0);
+          transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #8B0000;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #logo {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          width: 100px;
+          height: auto;
+        }
+
+        #logo-link {
+          text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <a id="logo-link" href="index.html">
+        <img id="logo" src="https://media.discordapp.net/attachments/1151770312451567678/1151770687044849694/Logo4.png" alt="Logo" />
+    </a>
+
+    <div class="container">
+        <button onclick="window.location.href='groesser-kleiner.html'">Größer Kleiner</button>
+        <button onclick="window.location.href='versuche.html'">Versuche</button>
+        <button onclick="window.location.href='random.html'">Random</button>
+        <button onclick="window.location.href='passwortzwischen.html'">Passwort zwischen</button>
+        <button onclick="window.location.href='selberangeben.html'">Selber Angeben</button>
+        <button onclick="window.location.href='zufallszahl.html'">Zufallszahl</button>
+        <button onclick="window.location.href='zufallmitlob.html'">Zufallszahl mit Lob</button>
+    </div>
+</body>
+</html>
