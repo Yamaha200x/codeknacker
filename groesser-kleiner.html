@@ -2,11 +2,12 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Passwort</title>
     <style>
         body {
-          color: #002671;
-          background-color: #002671;
+          color: #000000;
+          background-color: #000000;
           background-image: url("https://media.discordapp.net/attachments/901747534609936387/1154663914928361492/Sternenhimmelblauundgelb.png?width=744&height=558");
           background-size: cover;
           background-repeat: no-repeat;
@@ -48,6 +49,44 @@
 
         #logo-link {
           text-decoration: none;
+        }
+
+        label {
+          color: #FFD700;
+        }
+
+        input[type="number"] {
+          background-color: #FFD700;
+          color: #000000;
+          border: none;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 5px 0;
+          font-family: "Engravers MT", Arial, sans-serif;
+        }
+
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: #FFD700;
+          color: #000000;
+          border: none;
+          border-radius: 5px;
+          margin: 10px;
+          cursor: pointer;
+          font-family: "Engravers MT", Arial, sans-serif;
+          box-shadow: 0 8px 16px rgb(255, 215, 0);
+          transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #DBB600;
+        }
+
+        #result {
+          color: #FFD700;
+          font-size: 18px;
+          font-weight: bold;
         }
     </style>
 </head>
