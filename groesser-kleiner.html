@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Passwort</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Check Passwort</h1>
+        <p>Willkommen beim Codeknacker! Bitte erraten Sie die Zahl, die als Passwort angegeben wurde.</p>
+        <label for="password">Geben Sie eine Zahl (max. 10 Ziffern) ein:</label>
+        <input type="number" id="password" max="9999999999">
+        <br>
+        <button onclick="checkPassword()">Überprüfen</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const geheimzahl = 42;
+            const eingabe = parseInt(document.getElementById('password').value);
+
+            if (!isNaN(eingabe)) {
+                if (eingabe === geheimzahl) {
+                    document.getElementById('result').innerHTML = "Die Zahl ist richtig!";
+                    setTimeout(() => {
+                        window.location.reload(); // Um die Seite neu zu laden
+                    }, 2500);
+                } else {
+                    document.getElementById('result').innerHTML = "Die Zahl ist falsch.";
+                }
+            } else {
+                document.getElementById('result').innerHTML = "Ungültige Eingabe. Bitte geben Sie eine Zahl ein.";
+            }
+        }
+    </script>
+</body>
+</html>
