@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Versuche</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            padding: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Versuche</h1>
+        <p>Willkommen beim Codeknacker! Bitte erraten Sie die Zahl, die als Passwort angegeben wurde. Am Ende wird Ihnen gezeigt, wie viele Versuche Sie gebraucht haben.</p>
+        <label for="password">Geben Sie eine Zahl (max. 10 Ziffern) ein:</label>
+        <input type="number" id="password" max="9999999999">
+        <br>
+        <button onclick="checkPassword()">Überprüfen</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let geheimzahl = 42;
+        let versuche = 0;
+
+        function checkPassword() {
+            const eingabe = parseInt(document.getElementById('password').value);
+            versuche++;
+
+            if (!isNaN(eingabe)) {
+                if (eingabe === geheimzahl) {
+                    document.getElementById('result').innerHTML = `Die Zahl ist richtig! Sie haben ${versuche} Versuche gebraucht.`;
+                    setTimeout(() => {
+                        window.location.reload(); // Um die Seite neu zu laden
+                    }, 2500);
+                } else {
+                    document.getElementById('result').innerHTML = "Die Zahl ist falsch.";
+                }
+            } else {
+                document.getElementById('result').innerHTML = "Ungültige Eingabe. Bitte geben Sie eine Zahl ein.";
+            }
+        }
+    </script>
+</body>
+</html>
