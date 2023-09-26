@@ -110,6 +110,7 @@
 
         function checkGuess() {
             const eingabe = parseInt(document.getElementById('guess').value);
+            const resultElement = document.getElementById('result');
 
             if (!isNaN(eingabe)) {
                 if (eingabe === geheimzahl) {
