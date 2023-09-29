@@ -1,0 +1,57 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int minValue = 0;   // Mindestwert
+        int maxValue = 1000; // Höchstwert
+
+        int targetNumber = new Random().Next(minValue, maxValue + 1); // Zufällige Zielnummer zwischen minValue und maxValue
+
+        Console.WriteLine($"Die richtige Zahl ist zwischen {minValue} und {maxValue}.");
+
+        int attempts = 0; // Anzahl der Versuche
+
+        while (true)
+        {
+            Console.Write("Geben Sie Ihre Schätzung ein (oder 'q' zum Beenden): ");
+            string input = Console.ReadLine();
+
+            if (input.ToLower() == "q")
+            {
+                Console.WriteLine("Spiel beendet.");
+                break;
+            }
+
+            if (int.TryParse(input, out int userGuess))
+            {
+                double winProbability = CalculateWinProbability(minValue, maxValue, userGuess, targetNumber);
+                Console.WriteLine($"Die Wahrscheinlichkeit, die richtige Zahl zu erraten, beträgt {winProbability:P}");
+                attempts++;
+            }
+            else
+            {
+                Console.WriteLine("Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein.");
+            }
+        }
+
+        Console.WriteLine($"Sie haben {attempts} Versuche unternommen.");
+    }
+
+    static double CalculateWinProbability(int minValue, int maxValue, int userGuess, int targetNumber)
+    {
+        if (userGuess < minValue || userGuess > maxValue)
+        {
+            return 0.0;
+        }
+        else if (userGuess == targetNumber)
+        {
+            return 1.0;
+        }
+        else
+        {
+            return 0.0;
+        }
+    }
+}
