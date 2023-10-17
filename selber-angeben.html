@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Passwort</title>
+    <style>
+        body {
+          color: #FFFFFF;
+          background-color: #FFFFFF;
+          background-image: url("https://media.discordapp.net/attachments/901747534609936387/1154663914928361492/Sternenhimmelblauundgelb.png?width=744&height=558");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          margin: 0;
+          font-family: "Engravers MT", Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #logo {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          width: 100px;
+          height: auto;
+        }
+
+        #logo-link {
+          text-decoration: none;
+        }
+
+        label {
+          color: #FFD700;
+        }
+
+        input[type="number"] {
+          background-color: #FFFFFF;
+          color: #000000;
+          border: none;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px 0;
+          font-family: "Engravers MT", Arial, sans-serif;
+        }
+
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: #FFD700;
+          color: #000000;
+          border: none;
+          border-radius: 5px;
+          margin: 10px;
+          cursor: pointer;
+          font-family: "Engravers MT", Arial, sans-serif;
+          box-shadow: 0 8px 16px rgb(255, 215, 0);
+          transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #DBB600;
+        }
+
+        #result {
+          color: #FFD700;
+          font-size: 18px;
+          font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <a id="logo-link" href="index.html">
+        <img id="logo" src="https://media.discordapp.net/attachments/901747534609936387/1148211086064099408/Logo_klein.png?width=556&height=558" alt="Logo" />
+    </a>
+    
+    <div class="container">
+        <h1>Check Passwort</h1>
+        <p>Willkommen beim Codeknacker! Bitte erraten Sie die Zahl, die als Passwort angegeben wurde.</p>
+        <label for="password">Geben Sie eine Zahl (max. 10 Ziffern) ein:</label>
+        <input type="number" id="password" max="9999999999">
+        <br>
+        <button onclick="checkPassword()">Überprüfen</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const geheimzahl = 42;
+            const eingabe = parseInt(document.getElementById('password').value);
+
+            if (!isNaN(eingabe)) {
+                if (eingabe === geheimzahl) {
+                    document.getElementById('result').innerHTML = "Die Zahl ist richtig!";
+                    setTimeout(() => {
+                        window.location.reload(); // Um die Seite neu zu laden
+                    }, 2500);
+                } else {
+                    document.getElementById('result').innerHTML = "Die Zahl ist falsch.";
+                }
+            } else {
+                document.getElementById('result').innerHTML = "Ungültige Eingabe. Bitte geben Sie eine Zahl ein.";
+            }
+        }
+    </script>
+</body>
+</html>
